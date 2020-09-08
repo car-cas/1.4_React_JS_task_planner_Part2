@@ -36,27 +36,11 @@ export class Login extends React.Component{
                             </FormControl>
                             <FormControl margin="normal" required fullWidth>
                                 <InputLabel htmlFor="password">password</InputLabel>
-                                <Input
-                                    name="password"
-                                    type="password"
-                                    id="password"
-                                    autoComplete="current-password"
-                                    value = {this.state.password}
-                                    onChange = {this.handlePass}
-                                    autoFocus
-                                />
+                                <Input name="password" type="password" id="password" autoComplete="current-password" value = {this.state.password} onChange = {this.handlePass} autoFocus />
                             </FormControl>
                             <br/>
                             <br/>
-                            <Button
-                                type="submit"
-                                fullWidth
-                                variant="contained"
-                                color="primary"
-                                className="submit"
-                            >
-                                Login
-                            </Button>
+                            <Button type="submit" fullWidth variant="contained" color="primary" className="submit">Login</Button>
                             <br/>
                             <br/>
                             <Link href="./Register" variant="body2"> Create Account </Link>

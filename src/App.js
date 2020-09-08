@@ -5,7 +5,7 @@ import './App.css';
 import {Login} from "./components/Login";
 import Home from "./components/Home";
 import NewTask from "./components/NewTask";
-import Register from "./components/Register";
+import UserProfile from "./components/UserProfile";
 
 class App extends Component{
   constructor(props) {
@@ -23,16 +23,17 @@ class App extends Component{
     const NewTaskView = () => (
       <NewTask />
     );
-    const RegisterView = () => (
-      <Register />
+    const UserProfileView = () => (
+      <UserProfile />
     );
     return (
       <Router>
         <div className="App">             
             <Route exact path="/" component={LoginView} />
+            <Route exact path="/Login" component={LoginView} />
             <Route exact path="/Home" component={HomeView} />     
             <Route exact path="/NewTask" component={NewTaskView} />
-            <Route exact path="/Register" component={RegisterView} />
+            <Route exact path="/UserProfile" component={UserProfileView} />
         </div>
       </Router>
     );

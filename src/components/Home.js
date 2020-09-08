@@ -14,6 +14,9 @@ import PropTypes from 'prop-types';
 import AssignmentIndOutlinedIcon from '@material-ui/icons/AssignmentIndOutlined';
 import PermIdentityOutlinedIcon from '@material-ui/icons/PermIdentityOutlined';
 import MeetingRoomOutlinedIcon from '@material-ui/icons/MeetingRoomOutlined';
+import AddIcon from '@material-ui/icons/Add';
+import Fab from '@material-ui/core/Fab';
+import MoreVertIcon from '@material-ui/icons/MoreVert';
 import classNames from 'classnames';
 
 const useStyles = makeStyles((theme) => ({}));
@@ -22,45 +25,24 @@ class Home extends React.Component{
 
     constructor(props) {
         super(props);
+        this.state = { task: [], menu: '', Add:false,  open:false}; 
         this.handleDrawerClose = this.handleDrawerClose.bind(this);
         this.handleDrawerOpen = this.handleDrawerOpen.bind(this);
+        this.handleAdd = this.handleAdd.bind(this);
     }
-
-    state = {
-        open: false,
-        task: [
-            {
-                "description": "Implement Login view",
-                "responsible": {
-                    "name": "Carlos Castañeda",
-                    "email": "admin@gmail.co"
-                },
-                "status": "In Progress",
-                "dueDate": new Date()
-            },
-            {
-                "description": "Implement Login controller ",
-                "responsible": {
-                    "name": "Carlos Castañeda",
-                    "email": "admin@gmail.co"
-                },
-                "status": "Ready",
-                "dueDate": new Date()
-            },
-            {
-                "description": "Facebook Integration",
-                "responsible": {
-                    "name": "Carlos Castañeda",
-                    "email": "admin@gmail.co"
-                },
-                "status": "Completed",
-                "dueDate": new Date()
-            }
-        ]
-    };
 
     render() {
         const {classes} = this.props;
+        const Buttonstyle = {         
+            position: "fixed",
+            bottom: "30px",
+            right:"30px"  
+        }; 
+        const fistyle = {         
+            position: "absolute",
+            top: "20px",
+            right:"30px"  
+        }; 
         return (
             <div>
                 <CssBaseline/>
@@ -70,7 +52,12 @@ class Home extends React.Component{
                             <MenuIcon/>
                         </IconButton>
                     </Toolbar>
+                    <MoreVertIcon style={fistyle}></MoreVertIcon>
+                    <Fab color="secondary" aria-label="add" style={Buttonstyle} onClick={this.handleAdd}>
+                        <AddIcon/>
+                    </Fab>   
                 </AppBar>
+                <br/><br/><br/>
                 <Drawer open={this.state.open} variant="persistent" anchor="left">
                     <div className={classes.drawerHeader}>
                         <IconButton onClick={this.handleDrawerClose}>
@@ -101,6 +88,7 @@ class Home extends React.Component{
                         return (<CardTask info={task}/>);
                     })}
                 </main>
+
             </div>
         );
     }
@@ -116,6 +104,13 @@ class Home extends React.Component{
             open: false
         });
     };
+
+    handleAdd(e) {    
+        this.setState({ 
+            Add: true
+        });   
+    };  
+
 }
 
 Home.propTypes = {

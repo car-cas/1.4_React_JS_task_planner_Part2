@@ -11,45 +11,38 @@ import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import "./style.css"
 
-export default function Register(){
+export default function UserProfile(){
     return (
         <React.Fragment>
             <CssBaseline />
             <main className="layout">
                 <Paper className="paper">
-                    <Typography variant="h2">Register</Typography>
+                    <Typography variant="h2">Registration</Typography>
                     <Avatar className="avatar">
                         <LockIcon />
                     </Avatar>
                     <form className="form">
+                        <FormControl margin="normal" required fullWidth>
+                            <InputLabel htmlFor="email">Full name</InputLabel>
+                            <Input id="name" name="name" autoComplete="name" autoFocus />
+                        </FormControl>
                         <FormControl margin="normal" required fullWidth>
                             <InputLabel htmlFor="email">username</InputLabel>
                             <Input id="email" name="email" autoComplete="email" autoFocus />
                         </FormControl>
                         <FormControl margin="normal" required fullWidth>
                             <InputLabel htmlFor="password">password</InputLabel>
-                            <Input
-                                name="password"
-                                type="password"
-                                id="password"
-                                autoComplete="current-password"
-                                autoFocus
-                            />
+                            <Input name="password" type="password" id="password" autoComplete="current-password" autoFocus/>
+                        </FormControl>
+                        <FormControl margin="normal" required fullWidth>
+                            <InputLabel htmlFor="password">confirm password</InputLabel>
+                            <Input name="password" type="password" id="password" autoComplete="current-password" autoFocus/>
                         </FormControl>
                         <br/>
                         <br/>
-                        <Button
-                            type="submit"
-                            fullWidth
-                            variant="contained"
-                            color="primary"
-                            className="submit"
-                        >
-                            Create
-                        </Button>
+                        <Button type="submit" fullWidth variant="contained" color="primary" className="submit"> Create</Button>
                         <br/>
                         <br/>
-                        <Link href="./login" variant="body2"> Back </Link>
                     </form>
                 </Paper>
             </main>
