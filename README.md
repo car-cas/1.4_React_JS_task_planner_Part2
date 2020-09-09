@@ -2,7 +2,7 @@ Realizado por **Carlos Andrés Castañeda Lozano**.
 # 1.4 React JS task planner Part 2
 ## Running instructions
   + [URL HEROKU](https://taskplanner2-ieti.herokuapp.com/)
-  + [URL Microsoft Azure](https://taskpannerieti.z22.web.core.windows.net/)
+  + [URL Microsoft Azure](https://taskplannerfull.z21.web.core.windows.net/)
 ### credentials
   * user: admin
   * password: admin
