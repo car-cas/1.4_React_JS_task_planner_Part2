@@ -1,5 +1,4 @@
 import React from 'react';
-import { makeStyles } from "@material-ui/core/styles";
 import CssBaseline from '@material-ui/core/CssBaseline';
 import FormControl from '@material-ui/core/FormControl';
 import Input from '@material-ui/core/Input';
@@ -24,7 +23,6 @@ export class NewTask extends React.Component {
         this.handlStatus=this.handlStatus.bind(this);
         this.handleDueDate=this.handleDueDate.bind(this);
         this.handleSumit=this.handleSumit.bind(this);
-        this.open= false;
     }
 
     render(){

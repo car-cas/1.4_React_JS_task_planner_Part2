@@ -1,7 +1,6 @@
 import React from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
-import Link from '@material-ui/core/Link';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import FormControl from '@material-ui/core/FormControl';
 import Input from '@material-ui/core/Input';
@@ -9,6 +8,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import LockIcon from '@material-ui/icons/LockOutlined';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
+import Link from "@material-ui/core/Link";
 import "./style.css"
 
 export class UserProfile extends React.Component {
@@ -53,6 +53,7 @@ export class UserProfile extends React.Component {
                             <Button type="submit" variant="contained" color="primary" className="submit">Save</Button>
                             <br/>
                             <br/>
+                            <Link href="/Home" variant="body2"> back </Link>
                         </form>
                     </Paper>
                 </main>
@@ -71,12 +72,14 @@ export class UserProfile extends React.Component {
     handleConfirmPassword(e) {
         this.setState({ secondPassword: e.target.value });
     }
-    handleSave(){
+    handleSave(e){
+        e.preventDefault();
         if (localStorage.getItem("email") !== this.state.email && localStorage.getItem("password") !== this.state.password && this.state.password === this.state.secondPassword){
             localStorage.setItem('email', this.state.email);
             localStorage.setItem('name', this.state.name);
             localStorage.setItem('password', this.state.password);
             localStorage.setItem("isLoggedIn", true);
         }
+        document.location.href = "/Home";
     }
 }

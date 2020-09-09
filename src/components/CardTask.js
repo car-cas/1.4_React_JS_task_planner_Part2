@@ -4,10 +4,6 @@ import Card from "@material-ui/core/Card";
 import {CardContent, CssBaseline, Typography} from "@material-ui/core";
 
 export class CardTask extends React.Component{
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         return (
             <React.Fragment>

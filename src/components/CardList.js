@@ -4,10 +4,6 @@ import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
 
 export class CardList extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     const cardList = this.props.cardList.map((cardTask, i) => {
       return (

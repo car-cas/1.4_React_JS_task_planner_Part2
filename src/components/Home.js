@@ -1,5 +1,4 @@
 import React from "react";
-import {CardTask} from "./CardTask";
 import {ListItem, Drawer, Divider, CssBaseline, Toolbar} from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
 import List from "@material-ui/core/List";
@@ -18,6 +17,7 @@ import MeetingRoomOutlinedIcon from '@material-ui/icons/MeetingRoomOutlined';
 import AddIcon from '@material-ui/icons/Add';
 import Fab from '@material-ui/core/Fab';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
+import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme) => ({}));
 
@@ -33,7 +33,7 @@ class Home extends React.Component{
         open: false,
         task: []
     };
-
+    
     render() {
         const {classes} = this.props;
         const Buttonstyle = {         
@@ -45,6 +45,9 @@ class Home extends React.Component{
             position: "absolute",
             top: "10px",
             right:"30px"  
+        }; 
+        const drawer = {         
+            width: "240px" 
         }; 
         return (
             <div>
@@ -63,7 +66,7 @@ class Home extends React.Component{
                     <AddIcon/>
                 </Fab> 
                 <br/><br/><br/>
-                <Drawer open={this.state.open} variant="persistent" anchor="left">
+                <Drawer open={this.state.open}  style={drawer} variant="persistent" anchor="left">
                     <div className={classes.drawerHeader}>
                         <IconButton onClick={this.handleDrawerClose}>
                             <ChevronLeftIcon/>
@@ -71,21 +74,29 @@ class Home extends React.Component{
                     </div>
                     <Divider/>
                     <div className={classes.list}>
+                        <br/><br/>
                         <List>
-                            <ListItem>
-                                <AssignmentIndOutlinedIcon />
-                                <ListItemText primary="Carlos Castaneda" secondary="Admin" />
-                            </ListItem>
+                            <AssignmentIndOutlinedIcon />
+                            <ListItemText primary="Admin" secondary="Admin" />
                         </List>
                         <div className="right">
                             <PermIdentityOutlinedIcon alt="edit"/>
                         </div>
                     </div>
+                    <br/><br/>
                     <Divider/>
-                    <div className="bottom">
+                    <br/><br/>
+                    <Button className="bottom">
                         <MeetingRoomOutlinedIcon alt="logout"/>
-                        <Link href="./Login">Logout</Link>
-                    </div>
+                        <Link href="/UserProfile">Update profile</Link>
+                    </Button>
+                    <br/><br/>
+                    <Divider/>
+                    <br/><br/>
+                    <Button className="bottom">
+                        <MeetingRoomOutlinedIcon alt="logout"/>
+                        <Link href="/Login">Logout</Link>
+                    </Button>
                 </Drawer>
                 <CardList
                     cardList={ localStorage.getItem("items") === null ? [] : JSON.parse(localStorage.getItem("items"))} />
