@@ -10,13 +10,10 @@ import InboxIcon from '@material-ui/icons/MoveToInbox';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import MenuItem from "@material-ui/core/MenuItem";
-import Select from "@material-ui/core/Select";
 import "date-fns";
 import DateFnsUtils from "@date-io/date-fns";
 import {MuiPickersUtilsProvider,KeyboardDatePicker} from "@material-ui/pickers";
 import "./style.css"
-import { render } from '@testing-library/react';
 
 export class NewTask extends React.Component {
     constructor(props){
