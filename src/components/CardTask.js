@@ -4,6 +4,9 @@ import Card from "@material-ui/core/Card";
 import {CardContent, CssBaseline, Typography} from "@material-ui/core";
 
 export class CardTask extends React.Component{
+    constructor(props) {
+        super(props);
+    }
 
     render() {
         return (
@@ -15,18 +18,18 @@ export class CardTask extends React.Component{
                             <div className="gridCard">
                                 <div>
                                     <Typography variant="h6">
-                                        {this.props.info.description} 
-                                        {this.props.info.status === 'In Progress' ? <InboxIcon alt="progress"/> : <div/>}
-                                        {this.props.info.status === 'Ready' ? <InboxIcon alt="ready"/> : <div/>}
-                                        {this.props.info.status === 'Completed' ? <InboxIcon alt="completed"/> : <div/>}
+                                        {this.props.descripcion}  
+                                        {this.props.status === 'In Progress' ? <InboxIcon alt="progress"/> : <div/>}
+                                        {this.props.status === 'Ready' ? <InboxIcon alt="ready"/> : <div/>}
+                                        {this.props.status === 'Completed' ? <InboxIcon alt="completed"/> : <div/>}
                                     </Typography>
                                 </div>
                             </div>
                             <Typography variant="h6">
-                                {this.props.info.status} - {new Date(this.props.info.dueDate).toDateString()}
+                                {this.props.status} - {new Date(this.props.dueDate).toLocaleDateString()}
                             </Typography>
                             <Typography variant="h6">
-                                {this.props.info.responsible.name}
+                                {this.props.name}  
                             </Typography>
                         </CardContent>
                     </Card>

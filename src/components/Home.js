@@ -3,6 +3,7 @@ import {CardTask} from "./CardTask";
 import {ListItem, Drawer, Divider, CssBaseline, Toolbar} from "@material-ui/core";
 import { makeStyles } from '@material-ui/core/styles';
 import List from "@material-ui/core/List";
+import {CardList} from "./CardList";
 import ListItemText from "@material-ui/core/ListItemText";
 import AppBar from "@material-ui/core/AppBar";
 import IconButton from "@material-ui/core/IconButton";
@@ -17,7 +18,6 @@ import MeetingRoomOutlinedIcon from '@material-ui/icons/MeetingRoomOutlined';
 import AddIcon from '@material-ui/icons/Add';
 import Fab from '@material-ui/core/Fab';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
-import classNames from 'classnames';
 
 const useStyles = makeStyles((theme) => ({}));
 
@@ -31,35 +31,7 @@ class Home extends React.Component{
 
     state = {
         open: false,
-        task: [
-            {
-                "description": "Implement Login view",
-                "responsible": {
-                    "name": "Carlos Castañeda",
-                    "email": "admin@gmail.co"
-                },
-                "status": "In Progress",
-                "dueDate": new Date()
-            },
-            {
-                "description": "Implement Login controller ",
-                "responsible": {
-                    "name": "Carlos Castañeda",
-                    "email": "admin@gmail.co"
-                },
-                "status": "Ready",
-                "dueDate": new Date()
-            },
-            {
-                "description": "Facebook Integration",
-                "responsible": {
-                    "name": "Carlos Castañeda",
-                    "email": "admin@gmail.co"
-                },
-                "status": "Completed",
-                "dueDate": new Date()
-            }
-        ]
+        task: []
     };
 
     render() {
@@ -112,16 +84,11 @@ class Home extends React.Component{
                     <Divider/>
                     <div className="bottom">
                         <MeetingRoomOutlinedIcon alt="logout"/>
-                        <Link href="./">Logout</Link>
+                        <Link href="./Login">Logout</Link>
                     </div>
                 </Drawer>
-                <main className={classNames(classes.content,{[classes.contentShift]: this.state.open})}>
-                    <div />
-                    {this.state.task.map(task => {
-                        return (<CardTask info={task}/>);
-                    })}
-                </main>
-
+                <CardList
+                    cardList={ localStorage.getItem("items") === null ? [] : JSON.parse(localStorage.getItem("items"))} />
             </div>
         );
     }

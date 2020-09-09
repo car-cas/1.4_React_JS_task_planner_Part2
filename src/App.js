@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 import {Login} from "./components/Login";
 import Home from "./components/Home";
-import NewTask from "./components/NewTask";
+import {NewTask} from "./components/NewTask";
 import FilterTask from "./components/FilterTask";
 import {UserProfile} from "./components/UserProfile";
 
@@ -31,7 +31,7 @@ class App extends Component{
     return (
       <Router>
         <div className="App">             
-            <Route exact path="/" component={LoginView} />
+            <Route exact path="/" component={HomeView} />
             <Route exact path="/Login" component={LoginView} />
             <Route exact path="/Home" component={HomeView} />     
             <Route exact path="/NewTask" component={NewTaskView} />
