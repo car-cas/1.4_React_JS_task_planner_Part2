@@ -5,13 +5,12 @@ import './App.css';
 import {Login} from "./components/Login";
 import Home from "./components/Home";
 import NewTask from "./components/NewTask";
-import UserProfile from "./components/UserProfile";
+import FilterTask from "./components/FilterTask";
+import {UserProfile} from "./components/UserProfile";
 
 class App extends Component{
   constructor(props) {
     super(props);
-    localStorage.setItem('email',"admin");
-    localStorage.setItem('password',"admin");
   }
   render(){
     const LoginView = () => (
@@ -23,6 +22,9 @@ class App extends Component{
     const NewTaskView = () => (
       <NewTask />
     );
+    const FilterTaskView = () => (
+      <FilterTask />
+    );
     const UserProfileView = () => (
       <UserProfile />
     );
@@ -33,6 +35,7 @@ class App extends Component{
             <Route exact path="/Login" component={LoginView} />
             <Route exact path="/Home" component={HomeView} />     
             <Route exact path="/NewTask" component={NewTaskView} />
+            <Route exact path="/FilterTask" component={FilterTaskView} />
             <Route exact path="/UserProfile" component={UserProfileView} />
         </div>
       </Router>

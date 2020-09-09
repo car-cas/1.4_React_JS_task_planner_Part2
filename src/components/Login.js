@@ -43,7 +43,7 @@ export class Login extends React.Component{
                             <Button type="submit" fullWidth variant="contained" color="primary" className="submit">Login</Button>
                             <br/>
                             <br/>
-                            <Link href="./Register" variant="body2"> Create Account </Link>
+                            <Link href="./UserProfile" variant="body2"> Create Account </Link>
                         </form>
                     </Paper>
                 </main>
@@ -58,11 +58,8 @@ export class Login extends React.Component{
     }
     handleSubmit(){
         if (localStorage.getItem("email") === this.state.email && localStorage.getItem("password") === this.state.password){
-            localStorage.setItem('page', 'home');
+            localStorage.setItem("isLoggedIn", true);
+            this.props.handleLogin();
         }
-        this.setState({
-            email: "",
-            password: ""
-        });
     }
 }

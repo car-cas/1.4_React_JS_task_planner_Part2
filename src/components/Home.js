@@ -25,11 +25,42 @@ class Home extends React.Component{
 
     constructor(props) {
         super(props);
-        this.state = { task: [], menu: '', Add:false,  open:false}; 
         this.handleDrawerClose = this.handleDrawerClose.bind(this);
         this.handleDrawerOpen = this.handleDrawerOpen.bind(this);
-        this.handleAdd = this.handleAdd.bind(this);
     }
+
+    state = {
+        open: false,
+        task: [
+            {
+                "description": "Implement Login view",
+                "responsible": {
+                    "name": "Carlos Castañeda",
+                    "email": "admin@gmail.co"
+                },
+                "status": "In Progress",
+                "dueDate": new Date()
+            },
+            {
+                "description": "Implement Login controller ",
+                "responsible": {
+                    "name": "Carlos Castañeda",
+                    "email": "admin@gmail.co"
+                },
+                "status": "Ready",
+                "dueDate": new Date()
+            },
+            {
+                "description": "Facebook Integration",
+                "responsible": {
+                    "name": "Carlos Castañeda",
+                    "email": "admin@gmail.co"
+                },
+                "status": "Completed",
+                "dueDate": new Date()
+            }
+        ]
+    };
 
     render() {
         const {classes} = this.props;
@@ -40,7 +71,7 @@ class Home extends React.Component{
         }; 
         const fistyle = {         
             position: "absolute",
-            top: "20px",
+            top: "10px",
             right:"30px"  
         }; 
         return (
@@ -52,11 +83,13 @@ class Home extends React.Component{
                             <MenuIcon/>
                         </IconButton>
                     </Toolbar>
-                    <MoreVertIcon style={fistyle}></MoreVertIcon>
-                    <Fab color="secondary" aria-label="add" style={Buttonstyle} onClick={this.handleAdd}>
-                        <AddIcon/>
-                    </Fab>   
+
+                    <IconButton style={fistyle} href="/FilterTask"><MoreVertIcon/></IconButton>
+                  
                 </AppBar>
+                <Fab color="secondary" aria-label="add" style={Buttonstyle} href="/NewTask">
+                    <AddIcon/>
+                </Fab> 
                 <br/><br/><br/>
                 <Drawer open={this.state.open} variant="persistent" anchor="left">
                     <div className={classes.drawerHeader}>
@@ -104,13 +137,6 @@ class Home extends React.Component{
             open: false
         });
     };
-
-    handleAdd(e) {    
-        this.setState({ 
-            Add: true
-        });   
-    };  
-
 }
 
 Home.propTypes = {

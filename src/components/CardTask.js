@@ -1,7 +1,6 @@
 import React from "react";
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import Card from "@material-ui/core/Card";
-import Button from '@material-ui/core/Button';
 import {CardContent, CssBaseline, Typography} from "@material-ui/core";
 
 export class CardTask extends React.Component{
